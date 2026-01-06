@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Switch } from "@/components/ui/switch";
+import * as SwitchPrimitive from "@radix-ui/react-switch";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,36 +21,38 @@ const Navbar = () => {
   }, [darkMode]);
 
   const ThemeSwitch = () => {
-    const w = 2.5; // largeur du switch en rem (~40px)
-    const h = 1.25; // hauteur du switch en rem (~20px)
-    const circle = 1.25; // diamètre du rond
+    const w = 40; // largeur en px
+    const h = 20; // hauteur en px
+    const circle = 20; // diamètre du rond
 
     return (
-      <Switch
+      <SwitchPrimitive.Root
         checked={darkMode}
         onCheckedChange={toggleDarkMode}
-        className="relative bg-[#F5F5DC] dark:bg-[#2F494F] rounded-full transition-colors duration-300 inline-flex items-center p-0.5"
-        style={{ width: `${w}rem`, height: `${h}rem` }}
+        className="relative rounded-full transition-colors duration-300 cursor-pointer"
+        style={{
+          width: w,
+          height: h,
+          backgroundColor: darkMode ? "#252525ff" : "#ffffffff",
+        }}
       >
         <span
-          className="absolute flex items-center justify-center rounded-full transition-transform duration-300"
+          className="absolute top-0 left-0 flex items-center justify-center rounded-full transition-all duration-300"
           style={{
-            width: `${circle}rem`,
-            height: `${circle}rem`,
-            transform: darkMode
-              ? `translateX(${w - circle - 0.125}rem)`
-              : "translateX(0)",
-            backgroundColor: darkMode ? "#1E40AF" : "#FACC15", // bleu nuit ou jaune soleil
+            width: circle,
+            height: circle,
+            transform: darkMode ? `translateX(${w - circle}px)` : "translateX(0px)",
+            backgroundColor: darkMode ? "#ffffffff" : "#ffffffff",
           }}
         >
           <Image
-            src={darkMode ? "/moon.svg" : "/sun.svg"}
+            src={darkMode ? "/moon.png" : "/sun.png"}
             alt={darkMode ? "Lune" : "Soleil"}
             width={16}
             height={16}
           />
         </span>
-      </Switch>
+      </SwitchPrimitive.Root>
     );
   };
 
@@ -58,7 +60,6 @@ const Navbar = () => {
     <nav className="bg-[#2F494F] text-[#F5F5DC] px-6 py-4 flex items-center justify-between">
       <div className="text-xl font-bold">MonPortfolio</div>
 
-      {/* Menu desktop */}
       <ul className="hidden md:flex items-center space-x-6">
         <li><Link href="/">Accueil</Link></li>
         <li><Link href="/projets">Projets</Link></li>
@@ -66,13 +67,11 @@ const Navbar = () => {
         <li><ThemeSwitch /></li>
       </ul>
 
-      {/* Mobile */}
       <div className="flex items-center md:hidden space-x-4">
         <ThemeSwitch />
-        <button className="text-[#6FC18A]" onClick={toggleMenu}>☰</button>
+        <button className="text-[#6FC18A]" onClick={() => setIsOpen(!isOpen)}>☰</button>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <ul className="absolute top-16 left-0 w-full bg-[#2F494F] flex flex-col items-center py-4 space-y-4 md:hidden">
           <li><Link href="/" onClick={() => setIsOpen(false)}>Accueil</Link></li>
