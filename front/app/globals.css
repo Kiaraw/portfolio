@@ -123,3 +123,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Scroll fluide pour les ancres */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Décalage des sections pour navbar fixed */
+section {
+  scroll-margin-top: 96px;
+}
