@@ -36,9 +36,14 @@ export default function Hero() {
               Voir mes projets
             </button>
 
-            <button className="px-6 py-2 rounded-full bg-white text-gray-900 text-sm font-medium shadow hover:bg-gray-100 transition">
+            <a
+              href="/Kiara_Wurtz_CV.pdf"
+              download
+              className="px-6 py-2 rounded-full bg-white text-gray-900 text-sm font-medium shadow hover:bg-gray-100 transition inline-flex items-center"
+            >
               Télécharger mon CV
-            </button>
+            </a>
+
           </div>
         </div>
 
