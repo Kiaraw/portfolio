@@ -2,8 +2,9 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center bg-[#E5E5E5]"
+      className="min-h-screen flex items-center bg-gradient-to-br from-[#A7C7E7] via-[#9ED9C8] to-[#FFF1B8]"
     >
+
       <div className="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Colonne gauche : texte */}
