@@ -2,7 +2,10 @@ import "./globals.css";
 
 export const metadata = {
   title: "Portfolio",
-  description: "Mon portfolio",
+  description: "Portfolio de  Kiara Wurtz",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({

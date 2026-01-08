@@ -51,36 +51,77 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#2F494F] text-[#F5F5DC] px-6 py-4 flex items-center justify-between">
+    <nav
+      className="
+        fixed top-0 left-0 w-full z-50
+        backdrop-blur-md
+        bg-white/40 dark:bg-black/40
+        border-b border-gray-200/60 dark:border-white/10
+        shadow-sm
+        px-6 py-4
+        flex items-center justify-between
+        text-gray-900 dark:text-gray-100
+      "
+    >
       {/* Titre */}
-      <div className="text-xl font-bold relative left-4">
+      <div className="text-xl font-semibold relative left-4">
         Kiara Wurtz
       </div>
 
       {/* Desktop */}
       <ul className="hidden md:flex items-center space-x-6 relative right-4">
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><ThemeSwitch /></li>
+        <li className="hover:opacity-70 transition">
+          <a href="#about">À propos</a>
+        </li>
+        <li className="hover:opacity-70 transition">
+          <a href="#projects">Projets</a>
+        </li>
+        <li className="hover:opacity-70 transition">
+          <a href="#contact">Contact</a>
+        </li>
+        <li>
+          <ThemeSwitch />
+        </li>
       </ul>
 
       {/* Mobile */}
       <div className="flex items-center md:hidden space-x-4">
         <ThemeSwitch />
         <button
-          className="text-[#6FC18A]"
-          onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-700 dark:text-gray-300 text-xl"
+            onClick={() => setIsOpen(!isOpen)}
         >
           ☰
         </button>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
-        <ul className="absolute top-full left-0 w-full bg-[#2F494F] flex flex-col items-center py-4 space-y-4 md:hidden">
-          <li><a href="#about" onClick={() => setIsOpen(false)}>À propos</a></li>
-          <li><a href="#projects" onClick={() => setIsOpen(false)}>Projets</a></li>
-          <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
+        <ul
+          className="
+            absolute top-full left-0 w-full
+            backdrop-blur-md
+            bg-white/80 dark:bg-black/80
+            border-b border-gray-200 dark:border-white/10
+            flex flex-col items-center py-4 space-y-4
+            md:hidden
+          "
+        >
+          <li>
+            <a href="#about" onClick={() => setIsOpen(false)}>
+              À propos
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={() => setIsOpen(false)}>
+              Projets
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={() => setIsOpen(false)}>
+              Contact
+            </a>
+          </li>
         </ul>
       )}
     </nav>
