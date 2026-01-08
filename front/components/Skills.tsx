@@ -12,8 +12,8 @@ export default function Skills() {
         {/* =========================
             Gestion de projet
         ========================= */}
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-600">
+        <div className="space-y-5">
+          <h3 className="text-regular font-semibold text-gray-600">
             Gestion de projet
           </h3>
 
@@ -28,7 +28,7 @@ export default function Skills() {
                 { src: "/logo/github.png", label: "GitHub" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center gap-2">
-                  <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#FFF1B866] rounded-xl flex items-center justify-center">
                     <Image src={item.src} alt={item.label} width={40} height={40} />
                   </div>
                   <span className="text-xs text-gray-700">{item.label}</span>
@@ -42,8 +42,8 @@ export default function Skills() {
         {/* =========================
             Développement & Langage
         ========================= */}
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-600">
+        <div className="space-y-5">
+          <h3 className="text-regular font-semibold text-gray-600">
             Développement & Langage
           </h3>
 
@@ -58,7 +58,7 @@ export default function Skills() {
                 { src: "/logo/python.png", label: "Python" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center gap-2">
-                  <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#FFF1B866] rounded-xl flex items-center justify-center">
                     <Image src={item.src} alt={item.label} width={40} height={40} />
                   </div>
                   <span className="text-xs text-gray-700">{item.label}</span>
@@ -72,8 +72,8 @@ export default function Skills() {
         {/* =========================
             Outils et logiciels
         ========================= */}
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-600">
+        <div className="space-y-5">
+          <h3 className="text-regular font-semibold text-gray-600">
             Outils et logiciels
           </h3>
 
@@ -86,7 +86,7 @@ export default function Skills() {
                 { src: "/logo/tableau.png", label: "Tableau / Power BI" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center gap-2">
-                  <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#FFF1B866] rounded-xl flex items-center justify-center">
                     <Image src={item.src} alt={item.label} width={40} height={40} />
                   </div>
                   <span className="text-xs text-gray-700 text-center">
