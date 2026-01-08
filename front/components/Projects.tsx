@@ -1,129 +1,96 @@
 import Link from "next/link";
+import FadeIn from "@/components/ui/FadeIn";
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="pt-12 pb-24 bg-gradient-to-br from-[#A7C7E7] via-[#9ED9C8] to-[#FFF1B8]"
-    >
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
+    <FadeIn>
+      <section
+        id="projects"
+        className="
+          pt-12 pb-24
+          bg-gradient-to-br
+          from-[#A7C7E7] via-[#9ED9C8] to-[#FFF1B8]
+          dark:from-[#020617] dark:via-[#0F172A] dark:to-[#1E293B]
+        "
+      >
+        <div className="max-w-6xl mx-auto px-6 space-y-12">
 
-        <h2 className="text-4xl font-bold text-gray-900 text-center">
-          Projets
-        </h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white text-center">
+            Projets
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {[
+              {
+                title: "Orbit",
+                desc: "Conception d’une solution de paiement autonome pour les boutiques de prêt-à-porter.",
+                tags: ["Études de marché", "Méthodes agiles", "Organisation", "Notion", "Figma"],
+                link: "/projects/orbit",
+              },
+              {
+                title: "GwidMe",
+                desc: "Application mobile permettant de visualiser l’affluence et les horaires d’activité des musées et monuments.",
+                tags: ["UX/UI", "Carte interactive", "Data", "Gestion de projet"],
+                link: "/projects/gwidme",
+              },
+              {
+                title: "BlockLucky",
+                desc: "Plateforme décentralisée de loterie basée sur un smart contract Ethereum.",
+                tags: ["Next.js", "Solidity", "Blockchain", "Travail d’équipe"],
+                link: "/projects/blocklucky",
+              },
+              {
+                title: "Moody React",
+                desc: "Application mobile React Native permettant aux salariés d’exprimer leurs ressentis de manière anonyme.",
+                tags: ["React Native", "Gestion de projet", "Gestion d’équipe", "Travail en groupe"],
+                link: "/projects/moody",
+              },
+            ].map((project) => (
+              <div
+                key={project.title}
+                className="
+                  border border-gray-300 dark:border-white/10
+                  rounded-2xl p-6 space-y-4
+                  bg-white dark:bg-white/5
+                  transition-all duration-300
+                  hover:-translate-y-1 hover:shadow-lg
+                "
+              >
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {project.title}
+                </h3>
 
-          {/* ===== Projet 1 : Orbit ===== */}
-          <div className="border border-gray-300 rounded-2xl p-6 space-y-4 bg-white">
-            <h3 className="text-xl font-semibold text-gray-900">
-              Orbit
-            </h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {project.desc}
+                </p>
 
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Conception d’une solution de paiement autonome pour les boutiques
-              de prêt-à-porter. Les articles sont scannés via des étiquettes NFC
-              dans une application dédiée.
-            </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="
+                        px-3 py-1 text-xs rounded-full
+                        border border-gray-300 dark:border-white/20
+                        text-gray-700 dark:text-gray-300
+                      "
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs border rounded-full">Études de marché</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Méthodes agiles</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Organisation</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Notion</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Figma</span>
-            </div>
-
-            <Link
-              href="/projects/orbit"
-              className="inline-block text-sm underline underline-offset-4"
-            >
-              Voir le projet →
-            </Link>
-          </div>
-
-          {/* ===== Projet 2 : GwidMe ===== */}
-          <div className="border border-gray-300 rounded-2xl p-6 space-y-4 bg-white">
-            <h3 className="text-xl font-semibold text-gray-900">
-              GwidMe
-            </h3>
-
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Application mobile permettant de visualiser l’affluence et les
-              horaires d’activité des musées et monuments via une carte
-              interactive, afin d’optimiser les parcours touristiques.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs border rounded-full">UX/UI</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Carte interactive</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Data</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Gestion de projet</span>
-            </div>
-
-            <Link
-              href="/projects/gwidme"
-              className="inline-block text-sm underline underline-offset-4"
-            >
-              Voir le projet →
-            </Link>
-          </div>
-
-          {/* ===== Projet 3 : BlockLucky ===== */}
-          <div className="border border-gray-300 rounded-2xl p-6 space-y-4 bg-white">
-            <h3 className="text-xl font-semibold text-gray-900">
-              BlockLucky
-            </h3>
-
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Plateforme décentralisée de loterie basée sur un smart contract
-              Ethereum (réseau local Hardhat). Achat de tickets via MetaMask.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs border rounded-full">Next.js</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Solidity</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Blockchain</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Travail d’équipe</span>
-            </div>
-
-            <Link
-              href="/projects/blocklucky"
-              className="inline-block text-sm underline underline-offset-4"
-            >
-              Voir le projet →
-            </Link>
-          </div>
-
-          {/* ===== Projet 4 : Moody React ===== */}
-          <div className="border border-gray-300 rounded-2xl p-6 space-y-4 bg-white">
-            <h3 className="text-xl font-semibold text-gray-900">
-              Moody React
-            </h3>
-
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Développement en équipe d’une application mobile React Native
-              permettant aux salariés d’exprimer leurs ressentis de manière
-              anonyme.
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs border rounded-full">React Native</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Gestion de projet</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Gestion d’équipe</span>
-              <span className="px-3 py-1 text-xs border rounded-full">Travail en groupe</span>
-            </div>
-
-            <Link
-              href="/projects/moody"
-              className="inline-block text-sm underline underline-offset-4"
-            >
-              Voir le projet →
-            </Link>
+                <Link
+                  href={project.link}
+                  className="inline-block text-sm underline underline-offset-4 text-gray-900 dark:text-gray-100 hover:opacity-70 transition"
+                >
+                  Voir le projet →
+                </Link>
+              </div>
+            ))}
           </div>
 
         </div>
-      </div>
-    </section>
+      </section>
+    </FadeIn>
   );
 }
