@@ -55,6 +55,13 @@ Chaque projet dispose d’une **page dédiée** comprenant :
 Le portfolio est déployé sur **Vercel**.  
 Chaque mise à jour sur la branche main de Github déclenche automatiquement un nouveau déploiement.
 
+Préparer les nodes modules :  
+``cd .\portfolio\front``  
+``pnpm i``
+
+Pour lancer le code :  
+``pnpm dev``
+
 ---
 
 ## 📬 Contact
